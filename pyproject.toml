@@ -87,6 +87,8 @@ version = "21.04.0"
 [tool.poetry.dependencies]
 incremental = "^17.5.0"
 python = "^3.8"
+netaddr = "^0.8.0"
+pyparsing = "^2.4.7"
 
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"
