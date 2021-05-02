@@ -3,13 +3,13 @@
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: ''
+    rev: v2.17.4
     hooks:
       - id: commitizen
         stages: [commit-msg]
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: ''
+    rev: v3.4.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
@@ -20,30 +20,30 @@ repos:
       - id: detect-private-key
 
   - repo: https://github.com/pappasam/toml-sort
-    rev: ''
+    rev: v0.19.0
     hooks:
       - id: toml-sort
         args: [--in-place]
 
   - repo: https://github.com/myint/docformatter
-    rev: ''
+    rev: v1.4
     hooks:
       - id: docformatter
 
   - repo: https://github.com/markdownlint/markdownlint
-    rev: ''
+    rev: v0.11.0
     hooks:
       - id: markdownlint
         args: [--style, cirosantilli, --rules, '~first-header-h1,~first-line-h1,~no-trailing-punctuation']
 
   - repo: https://github.com/timothycrosley/isort
-    rev: ''
+    rev: 5.8.0
     hooks:
       - id: isort
         additional_dependencies: [toml]
 
   - repo: https://github.com/psf/black
-    rev: ''
+    rev: 21.4b2
     hooks:
       - id: black
 
@@ -59,12 +59,12 @@ repos:
 #          flakehell, darglint, dlint, pep8-naming]
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: ''
+    rev: v0.812
     hooks:
       - id: mypy
 
   - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
-    rev: ''
+    rev: 0.1.0
     hooks:
       - id: yamlfmt
         args: [--mapping, '2', --sequence, '4', --offset, '2', --colons, --width, '88']
