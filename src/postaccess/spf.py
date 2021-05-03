@@ -23,6 +23,8 @@ class __Sequence(collections.abc.Sequence):
         else:
             return self.data[i]
 
+    def __repr__(self):
+        return "%s([" %self.__class__.__name__+ ", ".join([repr(x) for x in self.data ]) + "])"
 
 class SPF(__Sequence):
     @property
@@ -118,7 +120,7 @@ class IPNetwork(Mechanism):
         return "ip%d:%s%s" % (self.version, self.address, suffix)
 
     def __repr__(self):
-        return str(self)
+        return "%s(%r)" % (self.__class__.__name__, str(self.network))
 
 
 class Macro:
@@ -136,7 +138,7 @@ class Macro:
         self.__type = Macro.Type(_type)
         self.__length = length
         self.__reverse = reverse
-        self.__delimiter = "."
+        self.__delimiter = delimiter or "."
 
     @property
     def type(self):
@@ -155,14 +157,24 @@ class Macro:
         return self.__delimiter
 
     def __str__(self):
-        result = str(self.type)
+        result = self.type.value
         if self.length:
             result += "%d" % self.length
         if self.reverse:
             result += "r"
         if self.delimiter != ".":
             result += self.delimiter
-        return result
+        return "%%{%s}" % result
+
+    def __repr__(self):
+        kwargs = ""
+        if self.length:
+            kwargs += ", length = %r" % self.length
+        if self.reverse:
+            kwargs += ", reverse = %r" % self.reverse
+        if self.delimiter != ".":
+            kwargs += ", delimiter = %r" % self.delimiter
+        return "%s(%s%s)" % (self.__class__.__name__, self.type, kwargs)
 
 
 class Domain(__Sequence):
@@ -175,5 +187,3 @@ class Domain(__Sequence):
                 result += str(i)
         return result
 
-    def __repr__(self):
-        repr(self.data)
