@@ -1,9 +1,13 @@
 import abc
 import collections.abc
 import enum
+import logging
 import re
 
 import netaddr
+
+
+__logger__ = logging.getLogger(__name__)
 
 
 class __Sequence(collections.abc.Sequence):
@@ -24,7 +28,12 @@ class __Sequence(collections.abc.Sequence):
             return self.data[i]
 
     def __repr__(self):
-        return "%s([" %self.__class__.__name__+ ", ".join([repr(x) for x in self.data ]) + "])"
+        return (
+            "%s([" % self.__class__.__name__
+            + ", ".join([repr(x) for x in self.data])
+            + "])"
+        )
+
 
 class SPF(__Sequence):
     @property
@@ -186,4 +195,3 @@ class Domain(__Sequence):
             else:
                 result += str(i)
         return result
-

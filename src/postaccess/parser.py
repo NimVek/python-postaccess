@@ -1,4 +1,5 @@
 import functools
+import logging
 
 import netaddr
 
@@ -14,6 +15,8 @@ from pyparsing import (
 
 from . import spf
 
+
+__logger__ = logging.getLogger(__name__)
 
 integer = Word(nums).setParseAction(lambda toks: int(toks[0]))
 
@@ -52,9 +55,6 @@ ip6_cidr_length = (
 
 
 def __pa_ip(s, loc, toks):
-    print(toks[0])
-    print(toks[0]["network"])
-    print(list(toks[0].keys()))
     return spf.IPNetwork(toks[0]["network"])
 
 
