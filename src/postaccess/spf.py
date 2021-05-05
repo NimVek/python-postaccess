@@ -9,6 +9,20 @@ import netaddr
 
 __logger__ = logging.getLogger(__name__)
 
+__all__ = [
+    "SPF",
+    "Qualifier",
+    "Directive",
+    "Mechanism",
+    "All",
+    "Include",
+    "A",
+    "MX",
+    "IPNetwork",
+    "Macro",
+    "Domain",
+]
+
 
 class __Sequence(collections.abc.Sequence):
     def __init__(self, data):
@@ -98,6 +112,70 @@ class All(Mechanism):
 
     def __repr__(self):
         return "%s()" % (self.__class__.__name__)
+
+
+class Include(Mechanism):
+    def __init__(self, domain):
+        self.__domain = domain
+
+    @property
+    def domain(self):
+        return self.__domain
+
+    def __str__(self):
+        return "include:%s" % self.domain
+
+    def __repr__(self):
+        return "%s(%r)" % (self.__class__.__name__, self.domain)
+
+
+class __Cidr(Mechanism):
+    def __init__(self, domain=None, ipv4_prefix_length=32, ipv6_prefix_length=128):
+        self.__domain = domain
+        self.__ipv4_prefix_length = ipv4_prefix_length
+        self.__ipv6_prefix_length = ipv6_prefix_length
+
+    @property
+    def domain(self):
+        return self.__domain
+
+    @property
+    def ipv4_prefix_length(self):
+        return self.__ipv4_prefix_length
+
+    @property
+    def ipv6_prefix_length(self):
+        return self.__ipv6_prefix_length
+
+    def _str(self):
+        result = ""
+        if self.domain:
+            result += ":%s" % self.domain
+        if self.ipv4_prefix_length != 32:
+            result += "/%d" % self.ipv4_prefix_length
+        if self.ipv6_prefix_length != 128:
+            result += "//%d" % self.ipv6_prefix_length
+        return result
+
+    def __repr__(self):
+        kwargs = []
+        if self.domain:
+            kwargs.append("domain = %r" % self.domain)
+        if self.ipv4_prefix_length != 32:
+            kwargs.append("ipv4_prefix_length = %r" % self.ipv4_prefix_length)
+        if self.ipv6_prefix_length != 128:
+            kwargs.append("ipv6_prefix_length = %r" % self.ipv6_prefix_length)
+        return "%s(%s)" % (self.__class__.__name__, ", ".join(kwargs))
+
+
+class A(__Cidr):
+    def __str__(self):
+        return "a" + super()._str()
+
+
+class MX(__Cidr):
+    def __str__(self):
+        return "mx" + super()._str()
 
 
 class IPNetwork(Mechanism):

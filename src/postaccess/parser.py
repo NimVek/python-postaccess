@@ -10,6 +10,7 @@ from pyparsing import (
     Optional,
     ParseException,
     Word,
+    alphanums,
     nums,
 )
 
@@ -55,7 +56,8 @@ ip6_cidr_length = (
 
 
 def __pa_ip(s, loc, toks):
-    return spf.IPNetwork(toks[0]["network"])
+    __logger__.info(toks)
+    return spf.IPNetwork(toks["network"])
 
 
 ip4 = Combine(
@@ -71,12 +73,72 @@ ip6 = Combine(
 ).setParseAction(__pa_ip)
 
 
+def __pa_all(s, loc, toks):
+    return spf.All()
+
+
+all = CaselessLiteral("all").setParseAction(__pa_all)
+
+
+def __pa_macro(s, loc, toks):
+    return spf.Macro(
+        toks.get("macro"),
+        length=toks.get("length"),
+        reverse=bool(toks.get("reverse")),
+        delimiter=toks.get("delimiter", "."),
+    )
+
+
+macro = Combine(
+    "%{"
+    + Char("slodiphv")("macro")
+    + Optional(integer)("length")
+    + Optional("r")("reverse")
+    + Optional(Word(".-+,/_="))("delimiter")
+    + "}"
+).setParseAction(__pa_macro)
+
+macro_escape = Combine("%" + Char("%_-")).setParseAction(lambda toks: toks[0][1])
+
+domain = (macro ^ macro_escape ^ Word(alphanums + "-."))[...].setParseAction(
+    lambda toks: spf.Domain(toks)
+)
+
+include = Combine(CaselessLiteral("include") + ":" + domain("domain")).setParseAction(
+    lambda toks: spf.Include(toks["domain"])
+)
+
+
+def __pa_a_mx(s, loc, toks, cls=spf.A):
+    return cls(
+        domain=toks.get("domain"),
+        ipv4_prefix_length=toks.get("ip4", 32),
+        ipv6_prefix_length=toks.get("ip6", 128),
+    )
+
+
+a = Combine(
+    CaselessLiteral("a")
+    + Optional(":" + domain("domain"))
+    + Optional("/" + ip4_cidr_length("ip4"))
+    + Optional("//" + ip6_cidr_length("ip6"))
+).setParseAction(__pa_a_mx)
+
+mx = Combine(
+    CaselessLiteral("mx")
+    + Optional(":" + domain("domain"))
+    + Optional("/" + ip4_cidr_length("ip4"))
+    + Optional("//" + ip6_cidr_length("ip6"))
+).setParseAction(functools.partial(__pa_a_mx, cls=spf.MX))
+
+
 def __pa_directive(s, loc, toks):
     return spf.Directive(toks["mechanism"], toks.get("qualifier", "+"))
 
 
 directive = Combine(
-    Optional(Char("+-?~")("qualifier")) + (ip4)("mechanism")
+    Optional(Char("+-?~")("qualifier"))
+    + (all ^ include ^ a ^ mx ^ ip4 ^ ip6)("mechanism")
 ).setParseAction(__pa_directive)
 
 term = directive
