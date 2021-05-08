@@ -100,7 +100,6 @@ class Mechanism(abc.ABC):
         raise NotImplementedError
 
 
-
 class All(Mechanism):
     def __str__(self):
         return "all"
