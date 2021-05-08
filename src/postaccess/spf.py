@@ -1,5 +1,4 @@
 import abc
-import collections.abc
 import enum
 import logging
 import re
@@ -94,11 +93,12 @@ class Directive:
 class Mechanism(abc.ABC):
     @abc.abstractmethod
     def __str__(self):
-        pass
+        raise NotImplementedError
 
     @abc.abstractmethod
     def __repr__(self):
-        pass
+        raise NotImplementedError
+
 
 
 class All(Mechanism):
@@ -290,7 +290,7 @@ class Modifier(abc.ABC):
 
     @abc.abstractmethod
     def __str__(self):
-        pass
+        raise NotImplementedError
 
     def _str(self):
         return "=%s" % self.domain
