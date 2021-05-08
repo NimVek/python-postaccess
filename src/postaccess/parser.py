@@ -7,6 +7,7 @@ from pyparsing import (
     CaselessLiteral,
     Char,
     Combine,
+    OneOrMore,
     Optional,
     ParseException,
     Word,
@@ -18,6 +19,30 @@ from . import spf
 
 
 __logger__ = logging.getLogger(__name__)
+
+__all__ = [
+    "ip4_network",
+    "ip4_cidr_length",
+    "ip6_network",
+    "ip6_cidr_length",
+    "ip4",
+    "ip6",
+    "all",
+    "macro",
+    "domain",
+    "include",
+    "exists",
+    "a",
+    "mx",
+    "directive",
+    "redirect",
+    "exp",
+    "modifier",
+    "term",
+    "version",
+    "record",
+]
+
 
 integer = Word(nums).setParseAction(lambda toks: int(toks[0]))
 
@@ -56,7 +81,6 @@ ip6_cidr_length = (
 
 
 def __pa_ip(s, loc, toks):
-    __logger__.info(toks)
     return spf.IPNetwork(toks["network"])
 
 
@@ -100,12 +124,20 @@ macro = Combine(
 
 macro_escape = Combine("%" + Char("%_-")).setParseAction(lambda toks: toks[0][1])
 
-domain = (macro ^ macro_escape ^ Word(alphanums + "-."))[...].setParseAction(
-    lambda toks: spf.Domain(toks)
+domain = (
+    OneOrMore(macro ^ macro_escape ^ Word(alphanums + ".-_"))
+    .leaveWhitespace()
+    .setParseAction(lambda toks: spf.Domain(toks))
 )
+
 
 include = Combine(CaselessLiteral("include") + ":" + domain("domain")).setParseAction(
     lambda toks: spf.Include(toks["domain"])
+)
+
+
+exists = Combine(CaselessLiteral("exists") + ":" + domain("domain")).setParseAction(
+    lambda toks: spf.Exists(toks["domain"])
 )
 
 
@@ -138,10 +170,22 @@ def __pa_directive(s, loc, toks):
 
 directive = Combine(
     Optional(Char("+-?~")("qualifier"))
-    + (all ^ include ^ a ^ mx ^ ip4 ^ ip6)("mechanism")
+    + (all ^ include ^ a ^ mx ^ ip4 ^ ip6 ^ exists)("mechanism")
 ).setParseAction(__pa_directive)
 
-term = directive
+
+redirect = Combine(CaselessLiteral("redirect") + "=" + domain("domain")).setParseAction(
+    lambda toks: spf.Redirect(toks["domain"])
+)
+
+exp = Combine(CaselessLiteral("exp") + "=" + domain("domain")).setParseAction(
+    lambda toks: spf.Exp(toks["domain"])
+)
+
+
+modifier = redirect ^ exp
+
+term = directive ^ modifier
 
 version = CaselessLiteral("v=spf1")
 

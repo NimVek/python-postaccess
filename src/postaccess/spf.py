@@ -16,30 +16,25 @@ __all__ = [
     "Mechanism",
     "All",
     "Include",
+    "Exists",
     "A",
     "MX",
     "IPNetwork",
     "Macro",
     "Domain",
+    "Modifier",
+    "Redirect",
+    "Exp",
 ]
 
 
-class __Sequence(collections.abc.Sequence):
+class __Sequence:
     def __init__(self, data):
-        self.__data = data
+        self.__data = list(data)
 
     @property
     def data(self):
         return self.__data
-
-    def __len__(self):
-        return len(self.data)
-
-    def __getitem__(self, i):
-        if isinstance(i, slice):
-            return self.__class__(self.data[i])
-        else:
-            return self.data[i]
 
     def __repr__(self):
         return (
@@ -114,7 +109,7 @@ class All(Mechanism):
         return "%s()" % (self.__class__.__name__)
 
 
-class Include(Mechanism):
+class __DomainMechanism(Mechanism):
     def __init__(self, domain):
         self.__domain = domain
 
@@ -122,11 +117,21 @@ class Include(Mechanism):
     def domain(self):
         return self.__domain
 
-    def __str__(self):
-        return "include:%s" % self.domain
+    def _str(self):
+        return ":%s" % self.domain
 
     def __repr__(self):
         return "%s(%r)" % (self.__class__.__name__, self.domain)
+
+
+class Include(__DomainMechanism):
+    def __str__(self):
+        return "include" + self._str()
+
+
+class Exists(__DomainMechanism):
+    def __str__(self):
+        return "exists" + self._str()
 
 
 class __Cidr(Mechanism):
@@ -170,12 +175,12 @@ class __Cidr(Mechanism):
 
 class A(__Cidr):
     def __str__(self):
-        return "a" + super()._str()
+        return "a" + self._str()
 
 
 class MX(__Cidr):
     def __str__(self):
-        return "mx" + super()._str()
+        return "mx" + self._str()
 
 
 class IPNetwork(Mechanism):
@@ -273,3 +278,32 @@ class Domain(__Sequence):
             else:
                 result += str(i)
         return result
+
+
+class Modifier(abc.ABC):
+    def __init__(self, domain):
+        self.__domain = domain
+
+    @property
+    def domain(self):
+        return self.__domain
+
+    @abc.abstractmethod
+    def __str__(self):
+        pass
+
+    def _str(self):
+        return "=%s" % self.domain
+
+    def __repr__(self):
+        return "%s(%r)" % (self.__class__.__name__, self.domain)
+
+
+class Redirect(Modifier):
+    def __str__(self):
+        return "redirect" + self._str()
+
+
+class Exp(Modifier):
+    def __str__(self):
+        return "exp" + self._str()
