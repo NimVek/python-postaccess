@@ -12,7 +12,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.4">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.e35208c4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
@@ -378,13 +378,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#postaccessspfspf" class="md-nav__link">
-    SPF
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#postaccessspfqualifier" class="md-nav__link">
     Qualifier
   </a>
@@ -426,6 +419,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#postaccessspfexists" class="md-nav__link">
+    Exists
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#postaccessspfa" class="md-nav__link">
     A
   </a>
@@ -447,8 +447,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#postaccessspfdomain" class="md-nav__link">
-    Domain
+  <a href="#postaccessspfmodifier" class="md-nav__link">
+    Modifier
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postaccessspfredirect" class="md-nav__link">
+    Redirect
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postaccessspfexp" class="md-nav__link">
+    Exp
   </a>
   
 </li>
@@ -553,13 +567,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#postaccessspfspf" class="md-nav__link">
-    SPF
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#postaccessspfqualifier" class="md-nav__link">
     Qualifier
   </a>
@@ -601,6 +608,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#postaccessspfexists" class="md-nav__link">
+    Exists
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#postaccessspfa" class="md-nav__link">
     A
   </a>
@@ -622,8 +636,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#postaccessspfdomain" class="md-nav__link">
-    Domain
+  <a href="#postaccessspfmodifier" class="md-nav__link">
+    Modifier
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postaccessspfredirect" class="md-nav__link">
+    Redirect
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postaccessspfexp" class="md-nav__link">
+    Exp
   </a>
   
 </li>
@@ -661,10 +689,6 @@
           <span class="mkapi-section-name-body classes">Classes</span> 
         </div>
       <div class="mkapi-section-body classes"><ul class="mkapi-items">
-<li class="class"><code class="mkapi-item-name"><a href="#postaccess.spf.SPF">SPF</a></code>
-
-<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">All the operations on a read-only sequence.<a class="mkapi-src-link" href="../source/postaccess.spf/#postaccess.spf.SPF" title="Source for postaccess.spf.SPF">&lt;/&gt;</a></span></li>
-
 <li class="class"><code class="mkapi-item-name"><a href="#postaccess.spf.Qualifier">Qualifier</a></code>
 
 <span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">An enumeration.<a class="mkapi-src-link" href="../source/postaccess.spf/#postaccess.spf.Qualifier" title="Source for postaccess.spf.Qualifier">&lt;/&gt;</a></span></li>
@@ -684,6 +708,11 @@ inheritance.<a class="mkapi-src-link" href="../source/postaccess.spf/#postaccess
 <span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Helper class that provides a standard way to create an ABC using
 inheritance.<a class="mkapi-src-link" href="../source/postaccess.spf/#postaccess.spf.Include" title="Source for postaccess.spf.Include">&lt;/&gt;</a></span></li>
 
+<li class="class"><code class="mkapi-item-name"><a href="#postaccess.spf.Exists">Exists</a></code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Helper class that provides a standard way to create an ABC using
+inheritance.<a class="mkapi-src-link" href="../source/postaccess.spf/#postaccess.spf.Exists" title="Source for postaccess.spf.Exists">&lt;/&gt;</a></span></li>
+
 <li class="class"><code class="mkapi-item-name"><a href="#postaccess.spf.A">A</a></code>
 
 <span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Helper class that provides a standard way to create an ABC using
@@ -699,73 +728,20 @@ inheritance.<a class="mkapi-src-link" href="../source/postaccess.spf/#postaccess
 <span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Helper class that provides a standard way to create an ABC using
 inheritance.<a class="mkapi-src-link" href="../source/postaccess.spf/#postaccess.spf.IPNetwork" title="Source for postaccess.spf.IPNetwork">&lt;/&gt;</a></span></li>
 
-<li class="class"><code class="mkapi-item-name"><a href="#postaccess.spf.Domain">Domain</a></code>
+<li class="abstract-class"><code class="mkapi-item-name"><a href="#postaccess.spf.Modifier">Modifier</a></code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">domain</code><code class="mkapi-object-parenthesis">)</code>
 
-<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">All the operations on a read-only sequence.<a class="mkapi-src-link" href="../source/postaccess.spf/#postaccess.spf.Domain" title="Source for postaccess.spf.Domain">&lt;/&gt;</a></span></li>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Helper class that provides a standard way to create an ABC using
+inheritance.<a class="mkapi-src-link" href="../source/postaccess.spf/#postaccess.spf.Modifier" title="Source for postaccess.spf.Modifier">&lt;/&gt;</a></span></li>
 
+<li class="class"><code class="mkapi-item-name"><a href="#postaccess.spf.Redirect">Redirect</a></code>
 
-</ul></div>
-    </div>
-  </div>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Helper class that provides a standard way to create an ABC using
+inheritance.<a class="mkapi-src-link" href="../source/postaccess.spf/#postaccess.spf.Redirect" title="Source for postaccess.spf.Redirect">&lt;/&gt;</a></span></li>
 
-</div>
+<li class="class"><code class="mkapi-item-name"><a href="#postaccess.spf.Exp">Exp</a></code>
 
-<div class="mkapi-node" id="postaccess.spf.SPF">
-<div class='mkapi-object-container'>
-  <div class="mkapi-object class code top">
-    <div class="mkapi-object-kind class top">class</div>
-    <h2 id="postaccessspfspf" class="mkapi-object-body class top"><code class="mkapi-object-prefix"><a href="#postaccess.spf">postaccess.spf</a>.</code><code class="mkapi-object-name">SPF</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">data</code><code class="mkapi-object-parenthesis">)</code></h2>
-  </div>
-  <div class="mkapi-src-link">
-    <a class="mkapi-src-link" href="../source/postaccess.spf/#postaccess.spf.SPF" title="Source for postaccess.spf.SPF">&lt;/&gt;</a>
-  </div>
-</div>
-<div class="mkapi-docstring">
-<div class="mkapi-section bases">
-      <div class="mkapi-section-name bases">
-          <span class="mkapi-section-name-body bases">Bases</span> 
-        </div>
-      <div class="mkapi-section-body bases">
-<span class="mkapi-base">postaccess.spf.__Sequence</span>
-
-<span class="mkapi-base">collections.abc.Sequence</span>
-
-<span class="mkapi-base">collections.abc.Reversible</span>
-
-<span class="mkapi-base">collections.abc.Collection</span>
-
-<span class="mkapi-base">collections.abc.Sized</span>
-
-<span class="mkapi-base">collections.abc.Iterable</span>
-
-<span class="mkapi-base">collections.abc.Container</span>
-</div>
-    </div>
-  <div class="mkapi-section">
-      <div class="mkapi-section-body"><p>All the operations on a read-only sequence.</p>
-<p>Concrete subclasses must override <strong>new</strong> or <strong>init</strong>,
-<strong>getitem</strong>, and <strong>len</strong>.</p></div>
-    </div>
-  <div class="mkapi-section parameters">
-      <div class="mkapi-section-name parameters">
-          <span class="mkapi-section-name-body parameters">Parameters</span> 
-        </div>
-      <div class="mkapi-section-body parameters"><ul class="mkapi-items">
-<li><code class="mkapi-item-name">data</code>
-
-<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description"></span></li>
-
-
-</ul></div>
-    </div>
-  <div class="mkapi-section attributes">
-      <div class="mkapi-section-name attributes">
-          <span class="mkapi-section-name-body attributes">Attributes</span> 
-        </div>
-      <div class="mkapi-section-body attributes"><ul class="mkapi-items">
-<li><code class="mkapi-item-name">__data</code>
-
-<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description"></span></li>
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description">Helper class that provides a standard way to create an ABC using
+inheritance.<a class="mkapi-src-link" href="../source/postaccess.spf/#postaccess.spf.Exp" title="Source for postaccess.spf.Exp">&lt;/&gt;</a></span></li>
 
 
 </ul></div>
@@ -1263,6 +1239,61 @@ inheritance.</p></div>
           <span class="mkapi-section-name-body bases">Bases</span> 
         </div>
       <div class="mkapi-section-body bases">
+<span class="mkapi-base">postaccess.spf.__DomainMechanism</span>
+
+<span class="mkapi-base"><a href="./#postaccess.spf.Mechanism">postaccess.spf.Mechanism</a></span>
+</div>
+    </div>
+  <div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p></div>
+    </div>
+  <div class="mkapi-section parameters">
+      <div class="mkapi-section-name parameters">
+          <span class="mkapi-section-name-body parameters">Parameters</span> 
+        </div>
+      <div class="mkapi-section-body parameters"><ul class="mkapi-items">
+<li><code class="mkapi-item-name">domain</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description"></span></li>
+
+
+</ul></div>
+    </div>
+  <div class="mkapi-section attributes">
+      <div class="mkapi-section-name attributes">
+          <span class="mkapi-section-name-body attributes">Attributes</span> 
+        </div>
+      <div class="mkapi-section-body attributes"><ul class="mkapi-items">
+<li><code class="mkapi-item-name">__domain</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description"></span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="postaccess.spf.Exists">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object class code top">
+    <div class="mkapi-object-kind class top">class</div>
+    <h2 id="postaccessspfexists" class="mkapi-object-body class top"><code class="mkapi-object-prefix"><a href="#postaccess.spf">postaccess.spf</a>.</code><code class="mkapi-object-name">Exists</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">domain</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/postaccess.spf/#postaccess.spf.Exists" title="Source for postaccess.spf.Exists">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section bases">
+      <div class="mkapi-section-name bases">
+          <span class="mkapi-section-name-body bases">Bases</span> 
+        </div>
+      <div class="mkapi-section-body bases">
+<span class="mkapi-base">postaccess.spf.__DomainMechanism</span>
+
 <span class="mkapi-base"><a href="./#postaccess.spf.Mechanism">postaccess.spf.Mechanism</a></span>
 </div>
     </div>
@@ -1487,48 +1518,27 @@ inheritance.</p></div>
 
 </div>
 
-<div class="mkapi-node" id="postaccess.spf.Domain">
+<div class="mkapi-node" id="postaccess.spf.Modifier">
 <div class='mkapi-object-container'>
-  <div class="mkapi-object class code top">
-    <div class="mkapi-object-kind class top">class</div>
-    <h2 id="postaccessspfdomain" class="mkapi-object-body class top"><code class="mkapi-object-prefix"><a href="#postaccess.spf">postaccess.spf</a>.</code><code class="mkapi-object-name">Domain</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">data</code><code class="mkapi-object-parenthesis">)</code></h2>
+  <div class="mkapi-object abstract-class code top">
+    <div class="mkapi-object-kind abstract-class top">abstract class</div>
+    <h2 id="postaccessspfmodifier" class="mkapi-object-body abstract-class top"><code class="mkapi-object-prefix"><a href="#postaccess.spf">postaccess.spf</a>.</code><code class="mkapi-object-name">Modifier</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">domain</code><code class="mkapi-object-parenthesis">)</code></h2>
   </div>
   <div class="mkapi-src-link">
-    <a class="mkapi-src-link" href="../source/postaccess.spf/#postaccess.spf.Domain" title="Source for postaccess.spf.Domain">&lt;/&gt;</a>
+    <a class="mkapi-src-link" href="../source/postaccess.spf/#postaccess.spf.Modifier" title="Source for postaccess.spf.Modifier">&lt;/&gt;</a>
   </div>
 </div>
 <div class="mkapi-docstring">
-<div class="mkapi-section bases">
-      <div class="mkapi-section-name bases">
-          <span class="mkapi-section-name-body bases">Bases</span> 
-        </div>
-      <div class="mkapi-section-body bases">
-<span class="mkapi-base">postaccess.spf.__Sequence</span>
-
-<span class="mkapi-base">collections.abc.Sequence</span>
-
-<span class="mkapi-base">collections.abc.Reversible</span>
-
-<span class="mkapi-base">collections.abc.Collection</span>
-
-<span class="mkapi-base">collections.abc.Sized</span>
-
-<span class="mkapi-base">collections.abc.Iterable</span>
-
-<span class="mkapi-base">collections.abc.Container</span>
-</div>
-    </div>
-  <div class="mkapi-section">
-      <div class="mkapi-section-body"><p>All the operations on a read-only sequence.</p>
-<p>Concrete subclasses must override <strong>new</strong> or <strong>init</strong>,
-<strong>getitem</strong>, and <strong>len</strong>.</p></div>
+<div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p></div>
     </div>
   <div class="mkapi-section parameters">
       <div class="mkapi-section-name parameters">
           <span class="mkapi-section-name-body parameters">Parameters</span> 
         </div>
       <div class="mkapi-section-body parameters"><ul class="mkapi-items">
-<li><code class="mkapi-item-name">data</code>
+<li><code class="mkapi-item-name">domain</code>
 
 <span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description"></span></li>
 
@@ -1540,7 +1550,109 @@ inheritance.</p></div>
           <span class="mkapi-section-name-body attributes">Attributes</span> 
         </div>
       <div class="mkapi-section-body attributes"><ul class="mkapi-items">
-<li><code class="mkapi-item-name">__data</code>
+<li><code class="mkapi-item-name">__domain</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description"></span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="postaccess.spf.Redirect">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object class code top">
+    <div class="mkapi-object-kind class top">class</div>
+    <h2 id="postaccessspfredirect" class="mkapi-object-body class top"><code class="mkapi-object-prefix"><a href="#postaccess.spf">postaccess.spf</a>.</code><code class="mkapi-object-name">Redirect</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">domain</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/postaccess.spf/#postaccess.spf.Redirect" title="Source for postaccess.spf.Redirect">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section bases">
+      <div class="mkapi-section-name bases">
+          <span class="mkapi-section-name-body bases">Bases</span> 
+        </div>
+      <div class="mkapi-section-body bases">
+<span class="mkapi-base"><a href="./#postaccess.spf.Modifier">postaccess.spf.Modifier</a></span>
+</div>
+    </div>
+  <div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p></div>
+    </div>
+  <div class="mkapi-section parameters">
+      <div class="mkapi-section-name parameters">
+          <span class="mkapi-section-name-body parameters">Parameters</span> 
+        </div>
+      <div class="mkapi-section-body parameters"><ul class="mkapi-items">
+<li><code class="mkapi-item-name">domain</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description"></span></li>
+
+
+</ul></div>
+    </div>
+  <div class="mkapi-section attributes">
+      <div class="mkapi-section-name attributes">
+          <span class="mkapi-section-name-body attributes">Attributes</span> 
+        </div>
+      <div class="mkapi-section-body attributes"><ul class="mkapi-items">
+<li><code class="mkapi-item-name">__domain</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description"></span></li>
+
+
+</ul></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="mkapi-node" id="postaccess.spf.Exp">
+<div class='mkapi-object-container'>
+  <div class="mkapi-object class code top">
+    <div class="mkapi-object-kind class top">class</div>
+    <h2 id="postaccessspfexp" class="mkapi-object-body class top"><code class="mkapi-object-prefix"><a href="#postaccess.spf">postaccess.spf</a>.</code><code class="mkapi-object-name">Exp</code><code class="mkapi-object-parenthesis">(</code><code class="mkapi-object-signature">domain</code><code class="mkapi-object-parenthesis">)</code></h2>
+  </div>
+  <div class="mkapi-src-link">
+    <a class="mkapi-src-link" href="../source/postaccess.spf/#postaccess.spf.Exp" title="Source for postaccess.spf.Exp">&lt;/&gt;</a>
+  </div>
+</div>
+<div class="mkapi-docstring">
+<div class="mkapi-section bases">
+      <div class="mkapi-section-name bases">
+          <span class="mkapi-section-name-body bases">Bases</span> 
+        </div>
+      <div class="mkapi-section-body bases">
+<span class="mkapi-base"><a href="./#postaccess.spf.Modifier">postaccess.spf.Modifier</a></span>
+</div>
+    </div>
+  <div class="mkapi-section">
+      <div class="mkapi-section-body"><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p></div>
+    </div>
+  <div class="mkapi-section parameters">
+      <div class="mkapi-section-name parameters">
+          <span class="mkapi-section-name-body parameters">Parameters</span> 
+        </div>
+      <div class="mkapi-section-body parameters"><ul class="mkapi-items">
+<li><code class="mkapi-item-name">domain</code>
+
+<span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description"></span></li>
+
+
+</ul></div>
+    </div>
+  <div class="mkapi-section attributes">
+      <div class="mkapi-section-name attributes">
+          <span class="mkapi-section-name-body attributes">Attributes</span> 
+        </div>
+      <div class="mkapi-section-body attributes"><ul class="mkapi-items">
+<li><code class="mkapi-item-name">__domain</code>
 
 <span class="mkapi-item-dash">&mdash;</span> <span class="mkapi-item-description"></span></li>
 
@@ -1618,10 +1730,10 @@ inheritance.</p></div>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.4ea5477f.min.js"></script>
+      <script src="../../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
       
         <script src="../../js/mkapi.js"></script>
       
