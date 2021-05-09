@@ -267,6 +267,37 @@ class Macro:
             kwargs += ", delimiter = %r" % self.delimiter
         return "%s(%s%s)" % (self.__class__.__name__, self.type, kwargs)
 
+    def expand(self, query):
+        result = None
+        if self.type == Macro.Type.SENDER:
+            result = query.sender
+        elif self.type == Macro.Type.SENDER_LOCAL:
+            result = query.sender.split("@")[0]
+        elif self.type == Macro.Type.SENDER_DOMAIN:
+            result = query.sender.split("@")[1]
+        elif self.type == Macro.Type.DOMAIN:
+            result = query.domain
+        elif self.type == Macro.Type.DOMAIN:
+            result = query.domain
+        elif self.type == Macro.Type.IP:
+            if query.ip.version == 6:
+                result = ".".join(
+                    query.ip.format(netaddr.ipv6_verbose).replace(":", "")
+                )
+            else:
+                result = str(query.ip)
+        elif self.type == Macro.Type.IP_VERSION:
+            if query.ip.version == 6:
+                result = "ip6"
+            else:
+                result = "in-addr"
+        result = re.split("|".join(map(re.escape, self.delimiter)), result)
+        if self.reverse:
+            result.reverse()
+        if self.length:
+            result = result[-self.length :]
+        return ".".join(result)
+
 
 class Domain(__Sequence):
     def __str__(self):
@@ -276,6 +307,17 @@ class Domain(__Sequence):
                 result += re.sub(r"[%_-]", r"%\g<0>", i)
             else:
                 result += str(i)
+        return result
+
+    def expand(self, query):
+        result = ""
+        for i in self.data:
+            if isinstance(i, str):
+                result += i
+            else:
+                result += i.expand(query)
+        while len(result) > 253:
+            result = result[result.index(".") + 1 :]
         return result
 
 
@@ -306,3 +348,25 @@ class Redirect(Modifier):
 class Exp(Modifier):
     def __str__(self):
         return "exp" + self._str()
+
+
+class Query:
+    def __init__(self, sender, domain=None, ip=netaddr.IPAddress("127.0.0.1")):
+        self.__sender = sender
+        self.__domain = domain
+        self.__ip = netaddr.IPAddress(ip)
+
+    @property
+    def sender(self):
+        result = self.__sender
+        if "@" not in result:
+            result = "postmaster@" + result
+        return result
+
+    @property
+    def domain(self):
+        return self.__domain or self.sender.split("@")[1]
+
+    @property
+    def ip(self):
+        return self.__ip
