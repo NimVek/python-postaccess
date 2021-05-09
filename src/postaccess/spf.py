@@ -304,7 +304,7 @@ class Domain(__Sequence):
         result = ""
         for i in self.data:
             if isinstance(i, str):
-                result += re.sub(r"[%_-]", r"%\g<0>", i)
+                result += i.replace("%", "%%").replace("%%20", "%-").replace(" ", "%_")
             else:
                 result += str(i)
         return result

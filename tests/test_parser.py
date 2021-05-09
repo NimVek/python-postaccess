@@ -30,7 +30,7 @@ def test_parser(record, expected):
         ("v=spf1 +mx -all", "v=spf1 mx -all"),
         (
             "v=spf1 +mx redirect=_spf.example.com",
-            "v=spf1 mx redirect=%_spf.example.com",
+            "v=spf1 mx redirect=_spf.example.com",
         ),
         ("v=spf1 a mx -all", "v=spf1 a mx -all"),
         (
@@ -39,15 +39,11 @@ def test_parser(record, expected):
         ),
         (
             "v=spf1 exists:%{ir}.%{l1r+-}._spf.%{d} -all",
-            "v=spf1 exists:%{ir}.%{l1r+-}.%_spf.%{d} -all",
+            "v=spf1 exists:%{ir}.%{l1r+-}._spf.%{d} -all",
         ),
         (
             "v=spf1 mx -all exp=explain._spf.%{d}",
-            "v=spf1 mx -all exp=explain.%_spf.%{d}",
-        ),
-        (
-            "v=spf1 a:authorized-spf.example.com -all",
-            "v=spf1 a:authorized%-spf.example.com -all",
+            "v=spf1 mx -all exp=explain._spf.%{d}",
         ),
     ],
 )
@@ -62,6 +58,7 @@ def test_parser_rfc(record, expected):
         ("v=spf1 ip4:192.0.2.1 ip4:192.0.2.129 -all"),
         ("v=spf1 mx:example.com -all"),
         ("v=spf1 ip4:192.0.2.0/24 mx -all"),
+        ("v=spf1 a:authorized-spf.example.com -all"),
     ],
 )
 def test_parser_equal(record):

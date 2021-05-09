@@ -122,7 +122,9 @@ macro = Combine(
     + "}"
 ).setParseAction(__pa_macro)
 
-macro_escape = Combine("%" + Char("%_-")).setParseAction(lambda toks: toks[0][1])
+__escape = {"%%": "%", "%_": " ", "%-": "%20"}
+
+macro_escape = Combine("%" + Char("%_-")).setParseAction(lambda toks: __escape[toks[0]])
 
 domain = (
     OneOrMore(macro ^ macro_escape ^ Word(alphanums + ".-_"))
