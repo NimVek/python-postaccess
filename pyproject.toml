@@ -89,6 +89,7 @@ incremental = "^17.5.0"
 python = "^3.8"
 netaddr = "^0.8.0"
 pyparsing = "^2.4.7"
+dnspython = "^2.1.0"
 
 [tool.poetry.dev-dependencies]
 black = "^21.5b0"
