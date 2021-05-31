@@ -1,4 +1,4 @@
-"""Entrypoint module, in case you use `python -m postaccess`.
+"""Entrypoint module, in case you use `python -m spf2acl`.
 
 Why does this file exist, and why __main__? For more info, read:
 

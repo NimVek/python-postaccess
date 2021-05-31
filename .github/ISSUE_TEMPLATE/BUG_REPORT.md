@@ -29,7 +29,7 @@ If applicable, add logs or screenshots to help explain your problem.
 
 ## Environment
 
-- postaccess version: [e.g. 21.04.0]
+- spf2acl version: [e.g. 21.04.0]
 - Python version: [e.g. 3.8]
 - OS: [e.g. Ubuntu 20.04]
 

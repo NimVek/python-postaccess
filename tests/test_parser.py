@@ -1,7 +1,7 @@
-"""Tests for `postaccess` package."""
+"""Tests for `spf2acl` package."""
 import pytest
 
-from postaccess import parser
+from spf2acl import parser
 
 
 @pytest.mark.parametrize(

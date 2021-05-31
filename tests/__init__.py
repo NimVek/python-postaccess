@@ -1,1 +1,1 @@
-"""Unit test package for postaccess."""
+"""Unit test package for spf2acl."""

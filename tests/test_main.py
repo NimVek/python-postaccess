@@ -1,14 +1,14 @@
-"""Tests for `postaccess` package."""
+"""Tests for `spf2acl` package."""
 import pytest
 
-from postaccess import main
+from spf2acl import main
 
 
 def test_command_line_interface(capsys):
     """Test the CLI."""
     main.main(args=[])
     captured = capsys.readouterr()
-    assert "postaccess.main.main" in captured.out
+    assert "spf2acl.main.main" in captured.out
 
 
 @pytest.mark.parametrize(
@@ -16,7 +16,7 @@ def test_command_line_interface(capsys):
     [
         ("--help", "show this help message and exit"),
         ("-h", "show this help message and exit"),
-        ("--version", "postaccess "),
+        ("--version", "spf2acl "),
     ],
 )
 def test_standard_arguments(capsys, argument, expected):

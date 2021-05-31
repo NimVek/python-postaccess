@@ -1,13 +1,13 @@
-# Contributing to Postaccess
+# Contributing to spf2acl
 
 Looking for a useful open source project to contribute to?
 Want your contributions to be warmly welcomed and acknowledged?
 Welcome! You have found the right place.
 
-## Getting Postaccess set up for local development
+## Getting spf2acl set up for local development
 
 The first step when contributing to any project is getting it set up on your
-local machine. Postaccess aims to make this as simple as possible.
+local machine. spf2acl aims to make this as simple as possible.
 
 Account Requirements:
 
@@ -22,10 +22,10 @@ Base System Requirements:
 Once you have verified that you system matches the base requirements you can
 start to get the project working by following these steps:
 
-1. [Fork the project on GitHub](https://github.com/NimVek/python-postaccess/fork).
+1. [Fork the project on GitHub](https://github.com/NimVek/python-spf2acl/fork).
 1. Clone your fork to your local file system:
-    `git clone https://github.com/$GITHUB_ACCOUNT/python-postaccess.git`
-1. `cd python-postaccess`
+    `git clone https://github.com/$GITHUB_ACCOUNT/python-spf2acl.git`
+1. `cd python-spf2acl`
 1. `poetry install`
 
 ## Making a contribution
@@ -33,7 +33,7 @@ start to get the project working by following these steps:
 Congrats! You're now ready to make a contribution! Use the following as a guide
 to help you reach a successful pull-request:
 
-1.  Check the [issues page](https://github.com/NimVek/python-postaccess/issues)
+1.  Check the [issues page](https://github.com/NimVek/python-spf2acl/issues)
     on GitHub to see if the task you want to complete is listed there.
     - If it's listed there, write a comment letting others know you are working
       on it.
@@ -49,7 +49,7 @@ Thanks for the contribution!
 
 ## Thank you!
 
-I can not tell you how thankful I am for the hard work done by Postaccess
+I can not tell you how thankful I am for the hard work done by spf2acl
 contributors like *you*.
 
 Thank you!

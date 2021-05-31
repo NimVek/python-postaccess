@@ -1,4 +1,4 @@
-"""Provides postaccess various information."""
+"""Provides spf2acl various information."""
 from ._version import __version__ as version
 
 
@@ -12,9 +12,9 @@ __all__ = [
     "__license__",
 ]
 
-__title__ = "Postaccess"
+__title__ = "spf2acl"
 __summary__ = "Generator for Postscreen accesslist based on senders' SPF records."
-__uri__ = "https://github.com/NimVek/python-postaccess/"
+__uri__ = "https://github.com/NimVek/python-spf2acl/"
 
 __version__ = version.short()
 

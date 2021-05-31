@@ -59,7 +59,7 @@ lines_between_types = 1
 combine_star = true
 include_trailing_comma = true
 use_parentheses = true
-known_first_party = "postaccess"
+known_first_party = "spf2acl"
 known_third_party = []
 
 [tool.poetry]
@@ -79,9 +79,9 @@ classifiers = [
 ]
 description = "Generator for Postscreen accesslist based on senders' SPF records."
 license = "GPL-3.0-or-later"
-name = "postaccess"
+name = "spf2acl"
 readme = "README.md"
-repository = "https://github.com/NimVek/python-postaccess"
+repository = "https://github.com/NimVek/python-spf2acl"
 version = "21.04.0"
 
 [tool.poetry.dependencies]
@@ -124,4 +124,4 @@ pytest-xdist = "^2.2.1"
 toml-sort = "^0.19.0"
 
 [tool.poetry.scripts]
-postaccess = 'postaccess.main:main'
+spf2acl = 'spf2acl.main:main'

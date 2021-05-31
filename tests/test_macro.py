@@ -1,8 +1,8 @@
-"""Tests for `postaccess` package."""
+"""Tests for `spf2acl` package."""
 import pytest
 
-from postaccess import parser
-from postaccess.spf import Query
+from spf2acl import parser
+from spf2acl.spf import Query
 
 
 @pytest.mark.parametrize(

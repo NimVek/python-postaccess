@@ -1,7 +1,7 @@
 ---
-site_name          : Postaccess
+site_name          : spf2acl
 site_description   : Generator for Postscreen accesslist based on senders' SPF records.
-repo_url           : https://github.com/NimVek/python-postaccess
+repo_url           : https://github.com/NimVek/python-spf2acl
 
 theme              :
   name: material
@@ -12,7 +12,7 @@ nav                :
   - Contributing:
       - Guide: CONTRIBUTING.md
       - Code of Conduct: CODE_OF_CONDUCT.md
-  - API: mkapi/api/src/postaccess|strict
+  - API: mkapi/api/src/spf2acl|strict
   - About:
       - License: LICENSE.md
 
